@@ -1,0 +1,12 @@
+{
+	"name": "ekraf",
+	"version": "1.0.0",
+	"description": "Build ekraf website",
+	"main": "tailwind.config.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "npx tailwindcss -i styles.css -o ./assets/css/styles.css --watch"
+	},
+	"author": "",
+	"license": "ISC"
+}

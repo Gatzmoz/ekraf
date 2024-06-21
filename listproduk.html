@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>E-Commerce Page</title>
+		<link href="./assets/css/styles.css" rel="stylesheet" />
+		<style></style>
+	</head>
+	<body class="bg-gray-100">
+		<nav
+			class="fixed flex items-center w-full px-[2em] md:px-[6em] py-5 transition-all"
+		>
+			<div class="container mx-auto">
+				<div class="brand flex items-center space-x-2 md:space-x-8">
+					<img
+						class="h-[3em] md:h-[5em]"
+						src="./assets/images/GASENDRA-comp.png"
+						alt="Logo Gasendra"
+					/>
+					<h1 class="text-[.5em] md:text-sm uppercase text-white">
+						<span class="font-bold text-[1.5em]"
+							>Kabinet Gasendra</span
+						>
+						<br />
+						Keluarga Mahasiswa ITERA
+					</h1>
+				</div>
+			</div>
+			<button
+				class="p-2 ms-auto bg-primary rounded-full hover:bg-yellow-600"
+			>
+				<img
+					class="icon-cart h-[1em] md:h-[2em]"
+					src="/assets/images/mdi_cart-outline.png"
+					alt="icon cart"
+				/>
+			</button>
+		</nav>
+		<!-- Header -->
+		<header
+			class="bg-gradient-to-r from-gasendra-blue-primary to-gasendra-blue-secondary text-white pt-6"
+		>
+			<div class="container mx-auto pt-5 md:pt-18">
+				<div
+					class="header-content w-100 flex items-center justify-center md:justify-around md:py-200"
+				>
+					<h1 class="uppercase text-sm md:text-4xl font-bold">
+						Tampil Lebih Kece di ITERA <br />
+						<span class="text-[1.5em] md:text-[1.5em]">
+							Mulai dari
+							<span class="text-primary">Rp. 100.000</span>
+						</span>
+					</h1>
+					<img
+						class="w-[5em] md:w-[15em]"
+						src="./assets/images/baju-crop.png"
+						alt=""
+					/>
+				</div>
+			</div>
+		</header>
+
+		<!-- Products Section -->
+		<section class="container mx-auto py-2 md:py-12 px-4">
+			<h2 class="text-xl md:text-6xl font-bold mb-2 md:mb-8 text-primary">
+				EKRAF E-COMMERCE
+			</h2>
+			<div class="mb-2 md:mb-8 grid grid-cols-4 gap-1">
+				<button
+					class="category active border-primary py-1 md:py-2 md:px-6 rounded-sm hover:bg-primary hover:font-bold text-[.6em] md:text-[1em]"
+				>
+					All Product
+				</button>
+				<button
+					class="category border-primary border-2 py-1 md:py-2 md:px-6 rounded hover:bg-primary hover:font-bold text-[.6em] md:text-[1em]"
+				>
+					Attribute
+				</button>
+				<button
+					class="category border-primary border-2 py-1 md:py-2 md:px-6 rounded hover:bg-primary hover:font-bold text-[.6em] md:text-[1em]"
+				>
+					Merchandise
+				</button>
+				<button
+					class="category border-primary border-2 text-black py-1 md:py-2 md:px-6 rounded hover:bg-primary hover:font-bold text-[.6em] md:text-[1em]"
+				>
+					Other
+				</button>
+			</div>
+
+			<div
+				class="product grid grid-cols-2 md:grid-cols-4 lg:grid-cols-3 gap-8 mb-4"
+				id="products"
+			>
+				<!-- Product Card -->
+				<div class="product" id="product">
+					<img
+						src="./assets/images/Mask group.png"
+						alt="Product Image"
+						class="w-full h-auto object-cover object-center mb-2 md:mb-6 rounded-sm"
+					/>
+					<h3 class="text-sm md:text-lg font-bold mb-2">
+						This OTSKY Men's Solid Ottoman Golf Polo Shirt
+					</h3>
+					<p class="text-primary text-2xl md:text-4xl font-bold mb-4">
+						Rp. 100.000,-
+					</p>
+					<button
+						class="bg-primary text-sm md:text-lg py-2 px-2 md:py-2 md:px-4 rounded-sm w-full hover:bg-yellow-600 font-semibold"
+					>
+						Tambah ke keranjang
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer
+			class="bg-gradient-to-r from-gasendra-blue-primary to-gasendra-blue-secondary text-white py-6 rounded-t-3xl md:rounded-none"
+		>
+			<div
+				class="container mx-auto text-center px-10 flex flex-col md:flex-row"
+			>
+				<div
+					class="brand flex items-center space-x-3 me-auto mb-5 md:mb-0"
+				>
+					<img
+						class="h-[4em] md:h-[5em]"
+						src="./assets/images/GASENDRA-comp.png"
+						alt="Logo Gasendra"
+					/>
+					<h1
+						class="text-[.5em] md:text-sm uppercase text-white text-left"
+					>
+						<span class="font-bold text-[1.5em]"
+							>Kabinet Gasendra</span
+						>
+						<br />
+						Keluarga Mahasiswa ITERA
+					</h1>
+				</div>
+				<div class="socmed flex items-center space-x-4">
+					<a href="" class="instagram">
+						<img src="./assets/images/Instagram.svg" alt="insta" />
+					</a>
+					<a href="" class="x">
+						<img src="./assets/images/Twitter.svg" alt="x" />
+					</a>
+					<a href="" class="youtube">
+						<img src="./assets/images/Youtube.svg" alt="yt" />
+					</a>
+					<a href="" class="spotify">
+						<img src="./assets/images/Spotify.svg" alt="spotify" />
+					</a>
+				</div>
+			</div>
+			<div class="copyright text-center pt-5">
+				<p class="text-[.5em] md:text-[1em]">
+					Copyright &copy; 2024 Kementerian Teknologi Informasi. All
+					Right Reserved
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			// Delete when not needed
+			const container = document.getElementById('products');
+			let x = 0;
+			while (x < 5) {
+				const product = document.getElementById('product');
+				const clonedProduct = product.cloneNode(true);
+				container.append(clonedProduct);
+				x += 1;
+			}
+
+			//scroll navbar
+			const navbar = document.querySelector('nav');
+			const scroll = () => {
+				if (window.scrollY > 100) {
+					navbar.classList.add('active');
+				} else {
+					navbar.classList.remove('active');
+				}
+			};
+			window.addEventListener('scroll', scroll);
+		</script>
+	</body>
+</html>

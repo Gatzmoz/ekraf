@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	padding: 0;
+	margin: 0;
+}
+nav.active {
+	@apply bg-gradient-to-r from-gasendra-blue-primary to-gasendra-blue-secondary py-1;
+}
+nav.active > .brand > img {
+	@apply h-[4em];
+}
+nav.active > button {
+	@apply p-2;
+}
+button.category.active {
+	@apply bg-primary font-bold;
+}
