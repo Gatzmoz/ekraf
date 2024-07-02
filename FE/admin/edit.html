@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS</title>
+    <script type="module" src="http://[::1]:5175/@vite/client"></script><link rel="stylesheet" href="http://[::1]:5175/resources/css/app.css" /></head>
+
+<body class="bg-cms-gray">
+    <header class=" bg-cms-dark-gray h-[60px]">
+
+</header>
+<aside class="fixed top-0 left-0 z-40 h-screen transition-transform -translate-x-full sm:translate-x-0 shadow-md">
+    <div class="h-full bg-cms-dark-gray px-3 py-4 overflow-y-auto text-white">
+        <h1>E-commerce</h1>
+        <ul>
+            <li class="mt-2">
+                <button class="dropdown-button w-[200px] px-2 py-[.5em] bg-cms-blue text-white rounded-md flex flex-row items-center "
+    onclick="toggleDropdown('produk', this)">
+    <i class="bi bi-shop text-xl me-2"></i>
+    Produk
+    <i class="bi bi-chevron-down chevron-icon ms-auto text-xl transition-all"></i>
+</button>
+<ul class="w-full mt-1 hidden dropdown-menu" id="produk">
+    <li class="flex justify-center">
+        <a class="text-cms-text-gray rounded-md px-2 py-[.5em] flex flex-row items-center hover:bg-cms-light-gray w-full"
+            href="/admin/buatproduk">
+            <i class="bi bi-circle me-1.5 w-5"></i>
+            Buat Produk Baru
+        </a>
+    </li>
+    <li class="flex justify-center">
+        <a class="text-cms-text-gray rounded-md px-2 py-[.5em] flex flex-row items-center hover:bg-slate-300 w-full"
+            href="/admin/kelolaproduk">
+            <i class="bi bi-circle me-1.5 w-5"></i>
+            Kelola Produk
+        </a>
+    </li>
+</ul>
+            </li>
+        </ul>
+    </div>
+</aside>
+    <main class="ps-[250px] pe-[20px] text-white">
+        <div class="title flex items-baseline py-4">
+            <h1 class="text-2xl">Edit Produk</h1>
+            <p class="ms-auto">breadcrumbs</p>
+        </div>
+
+        <section class="w-full shadow-md overflow-x-hidden">
+            <div class="section-title bg-cms-blue px-4 py-2">
+                <h1 class="text-xl">Edit Produk</h1>
+            </div>
+                <div class="section-form ">
+        <form method="post">
+            <input type="hidden" name="_token" value="jG6gkMLquRxF5bv8kHEfEVVlGGWzuDzyRG3SnLzx" autocomplete="off">            <div class="wrapper bg-cms-dark-gray px-4 py-2">
+                <div class="wrapper mt-2">
+            <label for="nama_produk">Nama Produk</label>
+        <br>
+        <input type="text" name="nama_produk" id="nama_produk"
+        class="w-full bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none "
+        placeholder="Masukkan nama produk" value="Jas Lab">
+    </div>
+                <div id="size">
+                    <div class="wrapper mt-2">
+            <label for="ukuran_produk[]">Ukuran Produk</label>
+        <br>
+        <input type="text" name="ukuran_produk[]" id="ukuran_produk[]"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none ukuran_produk"
+        placeholder="Masukkan ukuran produk" value="S">
+    </div>
+                </div>
+                <button type="button" class="text-blue-600 py-2" onclick="sizeAdd()">+ Tambah Ukuran</button>
+                <h1 class="font-bold text-lg">Jenis Produk</h1>
+                <div id="product-types">
+                    <div class="flex flex-wrap type-form">
+                        <div class="wrapper w-full">
+                            <div class="wrapper mt-2">
+            <label for="jenis_produk[]">Nama Jenis</label>
+        <br>
+        <input type="text" name="jenis_produk[]" id="jenis_produk[]"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none "
+        placeholder="Masukkan nama jenis produk" value="Putih">
+    </div>
+                            <div class="wrapper mt-2">
+            <label for="foto_produk[]">Foto Produk</label>
+        <br>
+        <button type="button" class="w-[270px] rounded-md flex justify-between" onclick="uploadBtn('foto_produk[]')">
+        <span id="foto_produk[]Btn"
+            class="border-2 text-gray-400 border-cms-text-gray w-full h-[38px] text-left ps-2 flex items-center rounded-l-md">
+            Pilih Foto Produk
+        </span>
+        <span
+            class="bg-cms-blue hover:bg-slate-600 text-white h-[38px] px-6 flex items-center rounded-r-md">Upload</span>
+    </button>
+    <input type="file" name="foto_produk[]" id="foto_produk[]" class="hidden">
+</div>
+                        </div>
+                        <div class="stock-form">
+                            <div class="wrapper mt-2">
+            <label for="produk[0][ukuran]">Ukuran Produk</label>
+        <br>
+        <input type="text" name="produk[0][ukuran]" id="produk[0][ukuran]"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none "
+        placeholder="Masukkan ukuran produk" value="S">
+    </div>
+                            <div class="wrapper mt-2">
+            <label for="produk[0][stok]">Stok Produk</label>
+        <br>
+        <input type="text" name="produk[0][stok]" id="produk[0][stok]"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none "
+        placeholder="Masukkan stok produk" value="200">
+    </div>
+                            <div class="wrapper mt-2">
+            <label for="produk[0][harga]">Harga Produk</label>
+        <br>
+        <input type="text" name="produk[0][harga]" id="produk[0][harga]"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none "
+        placeholder="Masukkan harga produk" value="100000">
+    </div>
+                        </div>
+                        <div id="add_button0">
+                            <button type="button"
+                                class="h-full w-[100px] border-2 border-white border-dashed ms-2 rounded-md"
+                                onclick="addStockSize(0)">
+                                <i class="bi bi-plus text-4xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="remove-button flex items-center">
+                        <div class="separator h-[2px] bg-white w-3/4 mt-2 mr-4"></div>
+                        <button type="button" class="bg-cms-red px-4 py-1">
+                            Hapus Jenis
+                        </button>
+                    </div>
+                    <button type="button" class="text-blue-600 py-2" id="type_add" onclick="typeAdd()">+ Tambah
+                        Jenis</button>
+                </div>
+                <div class="foto-product">
+                    <button type="button" class="bg-cms-blue h-[120px] w-[120px] rounded-md"
+                        onclick="document.getElementById('foto_produk').click()">
+                        Tambah Foto
+                    </button>
+                    <input type="file" name="foto_produk[]" id="foto_produk" class="hidden">
+                </div>
+                <div class="deskripsi flex flex-col mt-2">
+                    <label for="deskripsi">Deskripsi Produk</label>
+                    <textarea name="deskripsi" id="deskripsi" class="resize rounded-md w-full bg-transparent border-2 border-cms-text-gray">digunakan Saat praktikum</textarea>
+                </div>
+            </div>
+            <div class="submit bg-cms-darker-gray m-0 px-4 py-2 mb-5">
+                <button type="submit" class="bg-cms-blue px-3 py-2 rounded-md">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+        </section>
+    </main>
+    <script>
+        function toggleDropdown(id, button) {
+            // Hide all dropdown menus and reset chevron icons
+            var dropdownMenus = document.querySelectorAll('.dropdown-menu');
+            var chevronIcons = document.querySelectorAll('.chevron-icon');
+
+            dropdownMenus.forEach(function(menu) {
+                if (menu.id !== id) {
+                    menu.classList.add('hidden');
+                }
+            });
+
+            chevronIcons.forEach(function(icon) {
+                if (icon !== button.querySelector('.chevron-icon')) {
+                    icon.classList.remove('rotate-180');
+                }
+            });
+            var dropdownMenu = document.getElementById(id);
+            dropdownMenu.classList.toggle('hidden');
+            var chevronIcon = button.querySelector('.chevron-icon');
+            chevronIcon.classList.toggle('rotate-180');
+        }
+
+        //Helper function
+        function setAttributes(el, attrs) {
+            for (var key in attrs) {
+                el.setAttribute(key, attrs[key]);
+            }
+        }
+
+        function sizeAdd() {
+            const input =
+                '<div class="wrapper"> <input type = "text" name = "ukuran_produk[]" class = "w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-2" placeholder = "Masukkan ukuran produk" > <button class = "bg-cms-red py-1.5 px-3 rounded-md hover:bg-red-700" type="button" onclick="sizeDelete()"><i class = "bi bi-trash3"></i> </button></div>';
+            const size = document.getElementById('size')
+            size.insertAdjacentHTML('beforeend', input);
+        }
+
+        function sizeDelete() {
+            const size = document.getElementById('size');
+            const sizeInputs = size.querySelectorAll('input[name="ukuran_produk[]"]');
+            if (sizeInputs.length > 1) {
+                sizeInputs[sizeInputs.length - 1].parentElement.remove();
+            }
+        }
+
+        async function uploadBtn(target) {
+            const input = document.getElementById(target);
+            const text = document.getElementById(`${target}Btn`);
+            input.click();
+            input.onchange = function() {
+                const filename = input.files.length > 0 ? input.files[0].name : 'No file chosen';
+                text.innerHTML = filename;
+            };
+        }
+
+        function addStockSize(itype) {
+            const i = document.querySelectorAll('.stock-form').length;
+            const form = `<div class="stock-form mx-2">
+            <div class="wrapper mt-2">
+            <label for="ukuran_produk_stock${i}">Ukuran Produk</label>
+        <br>
+        <input type="text" name="produk[${i}][ukuran]" id="ukuran_produk_stock${i}"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1"
+        placeholder="Masukkan ukuran produk">
+    </div>
+      <div class="wrapper mt-2">
+            <label for="stok_produk${i}">Stok Produk</label>
+        <br>
+        <input type="text" name="produk[${i}][stok]" id="stok_produk${i}"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1"
+        placeholder="Masukkan stok produk">
+    </div>
+      <div class="wrapper mt-2">
+         <label for="harga_produk${i}">Harga Produk</label>
+        <br>
+        <input type="text" name="produk[${i}][harga]" id="harga_produk${i}"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1"
+        placeholder="Masukkan harga produk">
+      </div>
+            <div class="wrapper flex justify-center">
+                <button type="button" class="bg-cms-red py-1.5 px-3 rounded-md hover:bg-red-700 mt-2" onclick="stockSizeDelete()">
+                    <i class="bi bi-trash3"></i>
+                </button>
+            </div>
+        </div>`;
+            const size = document.getElementById(`add_button${itype}`);
+            size.insertAdjacentHTML('beforebegin', form);
+            console.log(i)
+
+        }
+
+        function stockSizeDelete() {
+            const size = document.querySelector('.type-form');
+            const sizeInputs = size.querySelectorAll('.stock-form');
+            if (sizeInputs.length > 1) {
+                sizeInputs[sizeInputs.length - 1].remove();
+            }
+        }
+
+        function typeAdd() {
+            const i = document.querySelectorAll('.type-form').length;
+            const typeForm = `
+            <div class="flex flex-wrap type-form">
+                  <div class="wrapper w-full">
+                     <div class="wrapper mt-2">
+            <label for="jenis_produk[]">Nama Jenis</label>
+        <br>
+        <input type="text" name="jenis_produk[]" id="jenis_produk[]"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none "
+        placeholder="Masukkan nama jenis produk" value="">
+    </div>
+                     <div class="wrapper mt-2">
+            <label for="foto_produk[]">Foto Produk</label>
+        <br>
+        <button type="button" class="w-[270px] rounded-md flex justify-between" onclick="uploadBtn('foto_produk[]')">
+        <span id="foto_produk[]Btn"
+            class="border-2 text-gray-400 border-cms-text-gray w-full h-[38px] text-left ps-2 flex items-center rounded-l-md">
+            Pilih Foto Produk
+        </span>
+        <span
+            class="bg-cms-blue hover:bg-slate-600 text-white h-[38px] px-6 flex items-center rounded-r-md">Upload</span>
+    </button>
+    <input type="file" name="foto_produk[]" id="foto_produk[]" class="hidden">
+</div>
+                  </div>
+                  <div class="stock-form">
+                     <div class="wrapper mt-2">
+            <label for="produk[${i}][0][ukuran]">Ukuran Produk</label>
+        <br>
+        <input type="text" name="produk[${i}][0][ukuran]" id="produk[${i}][0][ukuran]"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none "
+        placeholder="Masukkan ukuran produk" value="">
+    </div>
+                     <div class="wrapper mt-2">
+            <label for="produk[${i}][0][stok]">Stok Produk</label>
+        <br>
+        <input type="text" name="produk[${i}][0][stok]" id="produk[${i}][0][stok]"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none "
+        placeholder="Masukkan stok produk" value="">
+    </div>
+                     <div class="wrapper mt-2">
+            <label for="produk[${i}][0][harga]">Harga Produk</label>
+        <br>
+        <input type="text" name="produk[${i}][0][harga]" id="produk[${i}][0][harga]"
+        class="w-[270px] bg-cms-dark-gray border-2 border-cms-text-gray rounded-md py-1 px-2 mt-1 focus:outline-none "
+        placeholder="Masukkan harga produk" value="">
+    </div>
+                  </div>
+                  <div id="add_button${i}">
+                     <button type="button" class="h-full w-[100px] border-2 border-white border-dashed ms-2 rounded-md"
+                        onclick="addStockSize(${i})">
+                        <i class="bi bi-plus text-4xl"></i>
+                     </button>
+                  </div>
+            </div>
+            <div class="remove-button flex items-center">
+                  <div class="separator h-[2px] bg-white w-3/4 mt-2 mr-4"></div>
+                  <button type="button" class="bg-cms-red px-4 py-1">
+                     Hapus Jenis
+                  </button>
+            </div>
+         </div>
+         `;
+            const add = document.getElementById('type_add');
+            add.insertAdjacentHTML('beforebegin', typeForm);
+            console.log(i)
+        }
+    </script>
+</body>
+</html>

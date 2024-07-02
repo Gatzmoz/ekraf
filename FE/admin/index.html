@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CMS</title>
+		<link href="/assets/css/styles.css" rel="stylesheet" />
+	</head>
+
+	<body class="bg-cms-gray">
+		<header class="bg-cms-dark-gray h-[60px]"></header>
+		<aside
+			class="fixed top-0 left-0 z-40 h-screen transition-transform -translate-x-full sm:translate-x-0 shadow-md"
+		>
+			<div
+				class="h-full bg-cms-dark-gray px-3 py-4 overflow-y-auto text-white"
+			>
+				<h1>E-commerce</h1>
+				<ul>
+					<li class="mt-2">
+						<button
+							class="dropdown-button w-[200px] px-2 py-[.5em] bg-cms-blue text-white rounded-md flex flex-row items-center"
+							onclick="toggleDropdown('produk', this)"
+						>
+							<i class="bi bi-shop text-xl me-2"></i>
+							Produk
+							<i
+								class="bi bi-chevron-down chevron-icon ms-auto text-xl transition-all"
+							></i>
+						</button>
+						<ul
+							class="w-full mt-1 hidden dropdown-menu"
+							id="produk"
+						>
+							<li class="flex justify-center">
+								<a
+									class="text-cms-text-gray rounded-md px-2 py-[.5em] flex flex-row items-center hover:bg-cms-light-gray w-full"
+									href="/admin/buatproduk"
+								>
+									<i class="bi bi-circle me-1.5 w-5"></i>
+									Buat Produk Baru
+								</a>
+							</li>
+							<li class="flex justify-center">
+								<a
+									class="text-cms-text-gray rounded-md px-2 py-[.5em] flex flex-row items-center hover:bg-slate-300 w-full"
+									href="/admin/kelolaproduk"
+								>
+									<i class="bi bi-circle me-1.5 w-5"></i>
+									Kelola Produk
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<main class="ps-[250px] pe-[20px] text-white">
+			<div class="title flex items-baseline py-4">
+				<h1 class="text-2xl">Kelola Produk</h1>
+				<p class="ms-auto">breadcrumbs</p>
+			</div>
+
+			<section class="w-full shadow-md overflow-x-hidden">
+				<div class="section-title bg-cms-blue px-4 py-2">
+					<h1 class="text-xl">Kelola Produk</h1>
+				</div>
+				<section class="tabel_produk bg-cms-dark-gray p-3">
+					<table
+						class="border-2 border-cms-text-gray w-full table-fixed border-collapse"
+					>
+						<thead class="text-white text-center">
+							<tr>
+								<th
+									class="border border-cms-text-gray py-2 px-4 w-1/6"
+								>
+									No
+								</th>
+								<th
+									class="border border-cms-text-gray py-2 px-4 w-4/6"
+								>
+									Detail
+								</th>
+								<th
+									class="border border-cms-text-gray py-2 px-4 w-1/6"
+								>
+									Aksi
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="">
+								<td
+									class="border border-cms-text-gray py-2 px-4 text-center"
+								>
+									1
+								</td>
+								<td
+									class="border border-cms-text-gray py-2 px-4 text-center"
+								>
+									<h1 class="text-xl font-bold">Jas Lab</h1>
+									<a href="#" class="text-blue-500 underline"
+										>Link</a
+									>
+								</td>
+								<td
+									class="border border-cms-text-gray p-auto h-full text-center"
+								>
+									<a
+										href="#"
+										class="bg-blue-600 rounded-md px-3 py-2"
+										><i class="bi bi-eye-fill"></i
+									></a>
+									<a
+										href="/admin/edit.html"
+										class="bg-cms-blue rounded-md px-3 py-2"
+										><i class="bi bi-pencil"></i
+									></a>
+									<a
+										href="#"
+										class="bg-cms-red rounded-md px-3 py-2"
+										><i class="bi bi-trash3-fill"></i
+									></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+		</main>
+		<script>
+			function toggleDropdown(id, button) {
+				// Hide all dropdown menus and reset chevron icons
+				var dropdownMenus = document.querySelectorAll('.dropdown-menu');
+				var chevronIcons = document.querySelectorAll('.chevron-icon');
+
+				dropdownMenus.forEach(function (menu) {
+					if (menu.id !== id) {
+						menu.classList.add('hidden');
+					}
+				});
+
+				chevronIcons.forEach(function (icon) {
+					if (icon !== button.querySelector('.chevron-icon')) {
+						icon.classList.remove('rotate-180');
+					}
+				});
+				var dropdownMenu = document.getElementById(id);
+				dropdownMenu.classList.toggle('hidden');
+				var chevronIcon = button.querySelector('.chevron-icon');
+				chevronIcon.classList.toggle('rotate-180');
+			}
+		</script>
+	</body>
+</html>
